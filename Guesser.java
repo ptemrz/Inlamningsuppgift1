@@ -106,6 +106,12 @@ public class Guesser{
                        " (took me " + numberOfGuesses +
                        " guesses)");
   }
+  
+  public String toString(){
+  
+  	return "low: " + low + " high: " + high;
+  
+  }
 
 }
 
