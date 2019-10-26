@@ -6,9 +6,18 @@ public class GuessingGame {
 			usage();
 			System.exit(1);
 		}
+				
+		int low = 0;
+		int high= 0;
 		
-		int low = Integer.parseInt(args[0]);
-		int high= Integer.parseInt(args[1]);
+		try {
+			low = Integer.parseInt(args[0]);
+			high= Integer.parseInt(args[1]);
+		} catch (NumberFormatException e) {
+			System.out.println("Error!\n"+
+					"Both arguments must be whole numbers in base-ten.");
+			System.exit(2);
+		}
 		
 		Guesser guesser = new Guesser(low,high);
 		guesser.start();
