@@ -3,26 +3,14 @@ import java.util.Scanner;
 
 /**
  * Assignment 1 - Guessing Game
- * 
- * Here's the unfinished source code
- * for the Guesser class. It is your
- * task to complete the missing parts.
  */
 public class Guesser{
   private int low;
   private int high;
 
   /*
-   * Task 1. Write code here for a constructor
-   * which takes two int arguments and saves
-   * them in the instance variables low and high.
-   *
-   * If you don't remember the syntax for how to write
-   * constructors, revisit the chapter "Classes"
-   * and review the section about constructors.
-   *
+   * Task 1.
    */
-  
   public Guesser(int low, int high) {
   	
   	if (low >= high) {
@@ -38,9 +26,7 @@ public class Guesser{
 
 
   /*
-   * Task 2. Complete the start() method, so that
-   * in the method body, you call first the
-   * rules() method, next the doGuesses() method.
+   * Task 2. 
    */
   public void start(){
     rules();
@@ -56,14 +42,11 @@ public class Guesser{
   }
 
   /*
-   * Task 3. Complete the code for the getReply() method.
-   * In the current version below, it returns null each
-   * call, which is not what this method is supposed to do.
-   * 
-   * Instead, change the method so that it reads a reply
-   * from the player, and if it is "T" or "F", we have
-   * a valid reply. Return the String that you read from
-   * the player.
+   * Task 3. 
+   *
+   * The method reads a reply from the player, and if it
+   * is "T" or "F", we have a valid reply. 
+   * Returns the String that is read from the player.
    */
   private String getReply(){
     String reply = null;
@@ -74,10 +57,6 @@ public class Guesser{
 	System.out.println("Please answer T or F!");
 	reply = s.next();	
     }
-    // Write code here which reads a String from the console.
-    // As long as it is not a valid reply (one of "T" and "F")
-    // write an error message, and read a new reply.
-    // When you have gotten a valid reply, return it.
     return reply;
   }
 
@@ -115,6 +94,7 @@ public class Guesser{
                        " guesses)");
   }
   
+  @Override
   public String toString(){
   
   	return "low: " + low + " high: " + high;
