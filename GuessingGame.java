@@ -2,24 +2,15 @@ public class GuessingGame {
 	
 	public static void main(String[] args) {
 		
-		if (!(args.length == 2)) {
+		IntervalParser range = new IntervalParser(args);
+		
+		if (!range.couldParse()) {
+			System.err.println(range.getErrorMessage());
 			usage();
-			System.exit(1);
-		}
-				
-		int low = 0;
-		int high= 0;
-		
-		try {
-			low = Integer.parseInt(args[0]);
-			high= Integer.parseInt(args[1]);
-		} catch (NumberFormatException e) {
-			System.out.println("Error!\n"+
-					"Both arguments must be whole numbers in base-ten.");
-			System.exit(2);
+			System.exit(range.getErrorCode());
 		}
 		
-		Guesser guesser = new Guesser(low,high);
+		Guesser guesser = new Guesser(range.low(),range.high());
 		guesser.start();
 	}
 	

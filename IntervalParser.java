@@ -20,23 +20,24 @@ public class IntervalParser{
    * in high.
    */
   public IntervalParser(String[] args){
-    /* Pseudo code:
-       if lenght is 2{
-         try{
-           parse args and assign low and high
-           if(high is less than or equal to low){
-             set error code to 3
-             set error about low must be < high 
-           }
-         }catch number format exception
-           set error code to 2
-           set error about numerical arguments
-         }
-       }else{
-         set error code to 1
-         set error about two arguments
-       }
-     */
+  
+  	if(args.length == 2) {
+  		try {
+  			this.low  = Integer.parseInt(args[0]);
+  			this.high = Integer.parseInt(args[1]);
+  			
+  			if (high <= low) {
+  				errorCode = 3;
+  				error = "The lower bound must be less than the upper bound.";	
+  			}
+  		} catch (NumberFormatException e) {
+  			errorCode = 2;
+  			error = "The arguments must be numbers.";
+  		}
+  	} else {
+  		errorCode = 1;
+  		error = "You must provide two arguments.";
+  	}
   }
 
   public int getErrorCode(){
